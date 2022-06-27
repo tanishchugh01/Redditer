@@ -2,4 +2,6 @@ Reddit on Twitter?
 <br>
 But why?
 <br>
-![image](https://user-images.githubusercontent.com/72879445/176042329-29ab6873-cded-449a-9cb9-221cc6a5b536.png)
+<br>
+![image](https://user-images.githubusercontent.com/72879445/176043576-60b46539-0744-42b9-a7b7-3b080eaf0e0e.png)
+<p>(Redditer image)</p>
