@@ -8,6 +8,8 @@ const Post = ({
   profileName,
   date,
   userProfilePicture,
+  numberOfComments,
+  numberOfRetweets,
 }) => {
   username = "@" + username;
   return (
@@ -31,18 +33,21 @@ const Post = ({
               {date}
             </span>
           </span>
-          <span className=" justify-self-end align p-2 h-10 w-10 rounded-full mr-1 me-3 hover:bg-green-100">
+          <span className="p-2 h-10 w-10 rounded-full mr-1 me-3 hover:bg-green-100">
             <i class="bi bi-three-dots"></i>
           </span>
         </div>
         <h6 className="text-left mb-2 mt-[-5px]">{text}</h6>
-        <img src={image} alt={image} className=" mr-7 rounded-2xl  border " />
+        <img
+          src={image}
+          alt={username}
+          className=" mr-7 rounded-2xl  border "
+        />
         <div className="flex flex-row justify-between my-1 pr-8">
-          <LikeShareIcon icon="chat" number={10} />
-          <LikeShareIcon icon="arrow-repeat" number={15} />
-          <LikeShareIcon icon="heart" number={109} />
+          <LikeShareIcon icon="chat" number={numberOfComments} />
+          <LikeShareIcon icon="arrow-repeat" number={numberOfRetweets} />
+          <LikeShareIcon icon="heart" number={numberOfLikes} />
           <LikeShareIcon icon="upload" number={null} />
-          
         </div>
       </div>
     </div>
