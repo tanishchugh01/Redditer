@@ -27,9 +27,9 @@ const Post = ({
               <b>{profileName}</b>
             </span>
             &nbsp;
-            <span className="text-gray-700 ">{username}</span>
-            &nbsp; &#183; &nbsp;
-            <span className="text-gray-700 hover:underline cursor-pointer">
+            <span className="text-gray-700">{username}</span>
+            &nbsp; <span className=" invisible md:visible">&#183;</span> &nbsp;
+            <span className="text-gray-700 hover:underline cursor-pointer invisible md:visible">
               {date}
             </span>
           </span>
