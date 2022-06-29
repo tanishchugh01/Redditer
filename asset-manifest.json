@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Redditer/static/css/main.a6a5aa1e.css",
-    "main.js": "/Redditer/static/js/main.28acd85b.js",
+    "main.css": "/Redditer/static/css/main.444f9f56.css",
+    "main.js": "/Redditer/static/js/main.09ff9236.js",
     "static/js/787.ce26606e.chunk.js": "/Redditer/static/js/787.ce26606e.chunk.js",
     "index.html": "/Redditer/index.html",
-    "main.a6a5aa1e.css.map": "/Redditer/static/css/main.a6a5aa1e.css.map",
-    "main.28acd85b.js.map": "/Redditer/static/js/main.28acd85b.js.map",
+    "main.444f9f56.css.map": "/Redditer/static/css/main.444f9f56.css.map",
+    "main.09ff9236.js.map": "/Redditer/static/js/main.09ff9236.js.map",
     "787.ce26606e.chunk.js.map": "/Redditer/static/js/787.ce26606e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a6a5aa1e.css",
-    "static/js/main.28acd85b.js"
+    "static/css/main.444f9f56.css",
+    "static/js/main.09ff9236.js"
   ]
 }
