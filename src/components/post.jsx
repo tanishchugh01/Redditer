@@ -28,12 +28,12 @@ const Post = ({
             </span>
             &nbsp;
             <span className="text-gray-700">{username}</span>
-            &nbsp; <span className=" invisible md:visible">&#183;</span> &nbsp;
-            <span className="text-gray-700 hover:underline cursor-pointer invisible md:visible">
+            &nbsp; <span className="hiddenInPhone">&#183;</span> &nbsp;
+            <span className="text-gray-700 hover:underline cursor-pointer hiddenInPhone">
               {date}
             </span>
           </span>
-          <span className="p-2 h-10 w-10 rounded-full mr-1 me-3 hover:bg-green-100">
+          <span className="p-2 h-10 w-10 rounded-full mr-1 me-3 hoverGlow">
             <i class="bi bi-three-dots"></i>
           </span>
         </div>
