@@ -1,6 +1,6 @@
 {
-  "name": "redditer",
-  "homepage": "https://tanishchugh01.github.io/Redditer",
+  "name": "redditr",
+  "homepage": "https://tanishchugh01.github.io/Redditr",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
