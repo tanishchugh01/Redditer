@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Redditr/static/css/main.c1194feb.css",
-    "main.js": "/Redditr/static/js/main.9c4a2d5c.js",
-    "static/js/787.0782c7dc.chunk.js": "/Redditr/static/js/787.0782c7dc.chunk.js",
-    "index.html": "/Redditr/index.html",
-    "main.c1194feb.css.map": "/Redditr/static/css/main.c1194feb.css.map",
-    "main.9c4a2d5c.js.map": "/Redditr/static/js/main.9c4a2d5c.js.map",
-    "787.0782c7dc.chunk.js.map": "/Redditr/static/js/787.0782c7dc.chunk.js.map"
+    "main.css": "/redditr/static/css/main.c1194feb.css",
+    "main.js": "/redditr/static/js/main.fe58695a.js",
+    "static/js/787.0782c7dc.chunk.js": "/redditr/static/js/787.0782c7dc.chunk.js",
+    "index.html": "/redditr/index.html",
+    "main.c1194feb.css.map": "/redditr/static/css/main.c1194feb.css.map",
+    "main.fe58695a.js.map": "/redditr/static/js/main.fe58695a.js.map",
+    "787.0782c7dc.chunk.js.map": "/redditr/static/js/787.0782c7dc.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c1194feb.css",
-    "static/js/main.9c4a2d5c.js"
+    "static/js/main.fe58695a.js"
   ]
 }
