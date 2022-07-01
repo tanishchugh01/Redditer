@@ -2,7 +2,7 @@ import LikeShareIcon from "../widgets/likeShareIcon";
 
 const Post = ({
   text,
-  image,
+  urlForImage,
   numberOfLikes,
   username,
   profileName,
@@ -10,10 +10,22 @@ const Post = ({
   userProfilePicture,
   numberOfComments,
   numberOfRetweets,
+  textDescription
 }) => {
   username = "@" + username;
+  // function checkImage(url) {
+  //   // console.log(url);
+  //   var arr = ["jpeg", "jpg", "gif", "png"];
+  //   var ext =  url.substr(url.lastIndexOf(".") + 1,url.length);
+  //   // console.log(ext)
+  //   if (arr.includes(ext)) {
+  //     console.log("do");
+  //     return true;
+  //   }
+  //   return false;
+  // }
   return (
-    <div className="max-w-[37rem] flex flex-row border hover:bg-gray-100">
+    <div className="resizeToScreen flex flex-row border hover:bg-gray-100">
       <img
         className="w-10 h-10 m-3 rounded-full border-none"
         src={userProfilePicture}
@@ -37,12 +49,18 @@ const Post = ({
             <i class="bi bi-three-dots"></i>
           </span>
         </div>
-        <h6 className="text-left mb-2 mt-[-5px]">{text}</h6>
-        <img
-          src={image}
-          alt={username}
-          className=" mr-7 rounded-2xl  border "
-        />
+        <h6 className="text-left mb-2 mt-[-5px]  mr-7">{text}</h6>
+        <div className=" mr-7">
+          {textDescription==="" ? (
+            <img
+              src={urlForImage}
+              alt={username}
+              className=" rounded-2xl  border "
+            />
+          ) : (
+            <p className="text-clip overflow-hidden text-justify">{textDescription}</p>
+          )}
+        </div>
         <div className="flex flex-row justify-between my-1 pr-8">
           <LikeShareIcon icon="chat" number={numberOfComments} />
           <LikeShareIcon icon="arrow-repeat" number={numberOfRetweets} />

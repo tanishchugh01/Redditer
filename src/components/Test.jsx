@@ -1,71 +1,37 @@
-import { getDataThroughSubreddit } from "../API/subreddits";
-import React, { Component } from "react";
-import Loader from "./Loader";
-import Post from "./post";
+import Reel from "./Reel";
+import { Component } from "react";
 
 class Test extends Component {
-  state = {
-    postData: {},
-    isReady: false,
-  };
-
-  changeDateFormat(dateNum) {
-    const myDate = new Date(dateNum * 1000);
-    const year = myDate.getFullYear();
-    var monthList = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
-    const month = monthList[myDate.getMonth()];
-    const date = myDate.getDate();
-
-    return `${date} ${month}, ${year}`;
+  constructor() {
+    super();
+    this.tempSubReddit = "meme"
+    this.state = { subReddit: "meme" };
   }
 
-  fetchData() {
-    getDataThroughSubreddit("meme", null)
-      .then((result) => {
-        this.setState({ postData: result });
-        this.setState({ isReady: true });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-    }
-    
-    componentDidMount() {
-      this.fetchData();
-      console.log(this.state.postData);
+  getInput(event) {
+    // console.log(event.target.value,this.tempSubReddit);
+    this.tempSubReddit = event.target.value;
+  }
+
+  submitInput() {
+    this.setState({ subReddit: this.tempSubReddit });
   }
 
   render() {
-    if (!this.state.isReady) {
-      return <Loader />;
-    } else {
-      return (
-        <>
-          <div className="flex flex-col w-[100%] items-center">
-            {this.state.postData.children.map((post) => {
-              if (post.data.selftext === "") {
-                return (
-                  <Post
-                    text={post.data.title}
-                    image={post.data.url}
-                    numberOfLikes={post.data.score}
-                    username={post.data.author}
-                    profileName={post.data.author_fullname}
-                    date={this.changeDateFormat(post.data.created)}
-                    userProfilePicture="https://styles.redditmedia.com/t5_2qi1r/styles/communityIcon_2stg5hn8m5k51.png?width=256&s=e4abb6ac11d144c7fb965232592b4d42fe0e370b"
-                    key={post.data.id}
-                    numberOfComments={post.data.num_comments}
-                    numberOfRetweets={post.data.all_awardings.length}
-                  />
-                );
-              } else {
-                return <></>;
-              }
-            })}
-          </div>
-        </>
-      );
-    }
+    console.log(this.tempSubReddit);
+    return (
+      <>
+        <input
+          onChange={this.getInput.bind(this)}
+          className="bg-slate-200"
+          type="text"
+          placeholder="subreddit"
+          id="subredditName"
+        />
+        <button onClick={this.submitInput.bind(this)} className="bg-lime-500 w-5 h-5" />
+        <Reel subReddit={this.state.subReddit} />
+      </>
+    );
   }
 }
 

@@ -11,3 +11,14 @@
     @apply hover:bg-green-100 hover:text-green-500;
   }
 }
+
+@media screen and (min-width: 37rem) {
+  .resizeToScreen {
+    width: 37rem;
+  }
+} 
+@media screen and (max-width: 37rem) {
+  .resizeToScreen {
+    width: 100%;
+  }
+}
