@@ -22,14 +22,16 @@ class Test extends Component {
     console.log(this.tempSubReddit);
     return (
       <>
-        <SearchPair
-          textFn={this.getInput.bind(this)}
-          clickFn={this.submitInput.bind(this)}
-          icon="search"
-          buttonClass=" bg-gradient-to-br from-twitter to-reddit"
-          className="  bg-twitter/70"
-          height={8}
-        />
+        <div className="text-center">
+          <SearchPair
+            textFn={this.getInput.bind(this)}
+            clickFn={this.submitInput.bind(this)}
+            icon="search"
+            buttonClass=" bg-gradient-to-br from-twitter to-reddit"
+            className="  bg-twitter/70"
+            height={8}
+          />
+        </div>
 
         <Reel subReddit={this.state.subReddit} />
       </>

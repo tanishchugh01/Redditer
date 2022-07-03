@@ -12,5 +12,6 @@ export async function getDataThroughSubreddit(subreddit, after) {
     return rawData.data.data;
   } catch (err) {
     console.log(err);
+    return err.response.status;
   }
 }
