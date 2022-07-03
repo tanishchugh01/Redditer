@@ -1,4 +1,4 @@
-import LikeShareIcon from "../widgets/likeShareIcon";
+import IconNumberPair from "../widgets/IconNumberPair";
 
 const Post = ({
   text,
@@ -10,20 +10,10 @@ const Post = ({
   userProfilePicture,
   numberOfComments,
   numberOfRetweets,
-  textDescription
+  textDescription,
 }) => {
   username = "@" + username;
-  // function checkImage(url) {
-  //   // console.log(url);
-  //   var arr = ["jpeg", "jpg", "gif", "png"];
-  //   var ext =  url.substr(url.lastIndexOf(".") + 1,url.length);
-  //   // console.log(ext)
-  //   if (arr.includes(ext)) {
-  //     console.log("do");
-  //     return true;
-  //   }
-  //   return false;
-  // }
+
   return (
     <div className="resizeToScreen flex flex-row border hover:bg-gray-100">
       <img
@@ -46,26 +36,28 @@ const Post = ({
             </span>
           </span>
           <span className="p-2 h-10 w-10 rounded-full mr-1 me-3 hoverGlow">
-            <i class="bi bi-three-dots"></i>
+            <i className="bi bi-three-dots"></i>
           </span>
         </div>
         <h6 className="text-left mb-2 mt-[-5px]  mr-7">{text}</h6>
         <div className=" mr-7">
-          {textDescription==="" ? (
+          {textDescription === "" ? (
             <img
               src={urlForImage}
               alt={username}
               className=" rounded-2xl  border "
             />
           ) : (
-            <p className="text-clip overflow-hidden text-justify">{textDescription}</p>
+            <p className="overflow-hidden text-justify break-words">
+              {textDescription}
+            </p>
           )}
         </div>
         <div className="flex flex-row justify-between my-1 pr-8">
-          <LikeShareIcon icon="chat" number={numberOfComments} />
-          <LikeShareIcon icon="arrow-repeat" number={numberOfRetweets} />
-          <LikeShareIcon icon="heart" number={numberOfLikes} />
-          <LikeShareIcon icon="upload" number={null} />
+          <IconNumberPair icon="chat" number={numberOfComments} />
+          <IconNumberPair icon="arrow-repeat" number={numberOfRetweets} />
+          <IconNumberPair icon="heart" number={numberOfLikes} />
+          <IconNumberPair icon="upload" number={null} />
         </div>
       </div>
     </div>

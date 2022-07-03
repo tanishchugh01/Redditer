@@ -7,8 +7,8 @@ class Reel extends Component {
 
   state = {
     postData: {},
-    isReady: false,
   };
+  isReady= false;
   subReddit=this.props.subReddit
 
   changeDateFormat(dateNum) {
@@ -25,7 +25,7 @@ class Reel extends Component {
     getDataThroughSubreddit(this.props.subReddit, null)
       .then((result) => {
         this.setState({ postData: result });
-        this.setState({ isReady: true });
+        this.isReady=true;
         console.log(this.state.postData);
       })
       .catch((err) => {
@@ -38,18 +38,16 @@ class Reel extends Component {
     if(this.subReddit!==this.props.subReddit)
     {
       this.subReddit=this.props.subReddit;
-      this.state.isReady=false;
-      this.fetchData();
+      this.isReady=false;
     }
-    if (!this.state.isReady) {
+    if (!this.isReady) {
       this.fetchData();
       return <Loader />;
     } else {
       return (
         <>
-          <div className="flex flex-col w-[100%] items-center">
+          <article className="flex flex-col w-[100%] items-center">
             {this.state.postData.children.map((post) => {
-              // if (post.data.selftext === "") {
                 return (
                   <Post
                     text={post.data.title}
@@ -65,11 +63,8 @@ class Reel extends Component {
                     textDescription={post.data.selftext}
                   />
                 );
-              // } else {
-              //   return <></>;
-              // }
             })}
-          </div>
+          </article>
         </>
       );
     }
