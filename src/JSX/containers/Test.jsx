@@ -6,7 +6,9 @@ class Test extends Component {
   constructor() {
     super();
     this.tempSubReddit = "meme";
-    this.state = { subReddit: "meme" };
+    this.tempAfter = null;
+
+    this.state = { subReddit: "meme", afterArr: [null] };
   }
 
   getInput(event) {
@@ -15,7 +17,17 @@ class Test extends Component {
   }
 
   submitInput() {
-    this.setState({ subReddit: this.tempSubReddit });
+    this.setState({ subReddit: this.tempSubReddit, afterArr: [null] });
+  }
+
+  addAnotherReel() {
+    const newArr = [...this.state.afterArr];
+    newArr.push(this.tempAfter);
+    this.setState({ afterArr: newArr });
+  }
+
+  saveTempAfter(after) {
+    this.tempAfter = after;
   }
 
   render() {
@@ -33,7 +45,23 @@ class Test extends Component {
           />
         </div>
 
-        <Reel subReddit={this.state.subReddit} />
+        {this.state.afterArr.map((afterVal) => (
+          <Reel
+            subReddit={this.state.subReddit}
+            after={afterVal}
+            saveAfter={this.saveTempAfter.bind(this)}
+            key={afterVal}
+          />
+        ))}
+
+        <button
+          className="p-7 text-white font-bold bg-twitter ml-[40%]"
+          onClick={() => {
+            this.addAnotherReel();
+          }}
+        >
+          Show More
+        </button>
       </>
     );
   }

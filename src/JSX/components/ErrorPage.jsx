@@ -1,4 +1,4 @@
-const ErrorPage = ({ code, errMsg = "" }) => {
+const ErrorPage = ({ code=null, errMsg = "" }) => {
   var message = errMsg;
   
   switch (code) {

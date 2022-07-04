@@ -35,9 +35,10 @@ class Reel extends Component {
   }
 
   async fetchData() {
-    getDataThroughSubreddit(this.props.subReddit, null)
+    getDataThroughSubreddit(this.props.subReddit, this.props.after)
       .then((result) => {
         this.setState({ postData: result });
+        this.props.saveAfter(result.after);
         this.isReady = true;
         console.log(this.state.postData);
       })
