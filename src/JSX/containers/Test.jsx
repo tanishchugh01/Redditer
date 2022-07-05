@@ -1,14 +1,13 @@
-import Reel from "./Reel";
 import { Component } from "react";
 import SearchPair from "../widgets/SearchPair";
+import InfiniteReel from "./InfiniteReel";
 
 class Test extends Component {
   constructor() {
     super();
     this.tempSubReddit = "meme";
-    this.tempAfter = null;
 
-    this.state = { subReddit: "meme", afterArr: [null] };
+    this.state = { subReddit: "meme" };
   }
 
   getInput(event) {
@@ -17,55 +16,8 @@ class Test extends Component {
   }
 
   submitInput() {
-    this.noOfReels = 1;
-    window.removeEventListener("scroll", this.scrollListen);
-
-    this.addAnotherReel();
-    setTimeout(
-      () => window.addEventListener("scroll", this.scrollListen),
-      4000
-    );
-    this.setState({ subReddit: this.tempSubReddit, afterArr: [null] });
+    this.setState({ subReddit: this.tempSubReddit });
   }
-
-  addAnotherReel() {
-    const newArr = [...this.state.afterArr];
-    newArr.push(this.tempAfter);
-    this.setState({ afterArr: newArr });
-  }
-
-  saveTempAfter(after) {
-    this.tempAfter = after;
-  }
-
-  noOfReels = 1;
-
-  componentDidMount() {
-    window.addEventListener("scroll", this.scrollListen);
-  }
-  componentWillUnmount() {
-    window.removeEventListener("scroll", this.scrollListen);
-  }
-  scrollListen = () => {
-    const winScroll =
-      document.body.scrollTop || document.documentElement.scrollTop;
-    const height =
-      document.documentElement.scrollHeight -
-      document.documentElement.clientHeight;
-    const scrolledPerc = ((height - winScroll) / height) * 100;
-    // console.log(scrolledPerc);
-
-    if (scrolledPerc < 20 / this.noOfReels) {
-      window.removeEventListener("scroll", this.scrollListen);
-      this.noOfReels++;
-
-      this.addAnotherReel();
-      setTimeout(
-        () => window.addEventListener("scroll", this.scrollListen),
-        6000
-      );
-    }
-  };
 
   render() {
     console.log(this.tempSubReddit);
@@ -82,23 +34,7 @@ class Test extends Component {
           />
         </div>
 
-        {this.state.afterArr.map((afterVal) => (
-          <Reel
-            subReddit={this.state.subReddit}
-            after={afterVal}
-            saveAfter={this.saveTempAfter.bind(this)}
-            key={afterVal}
-          />
-        ))}
-
-        <button
-          className="p-7 text-white font-bold bg-twitter ml-[40%]"
-          onClick={() => {
-            this.addAnotherReel();
-          }}
-        >
-          Show More
-        </button>
+        <InfiniteReel subReddit={this.state.subReddit} key={this.state.subReddit}/>
       </>
     );
   }
