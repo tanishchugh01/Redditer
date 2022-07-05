@@ -17,6 +17,14 @@ class Test extends Component {
   }
 
   submitInput() {
+    this.noOfReels = 1;
+    window.removeEventListener("scroll", this.scrollListen);
+
+    this.addAnotherReel();
+    setTimeout(
+      () => window.addEventListener("scroll", this.scrollListen),
+      4000
+    );
     this.setState({ subReddit: this.tempSubReddit, afterArr: [null] });
   }
 
@@ -29,6 +37,35 @@ class Test extends Component {
   saveTempAfter(after) {
     this.tempAfter = after;
   }
+
+  noOfReels = 1;
+
+  componentDidMount() {
+    window.addEventListener("scroll", this.scrollListen);
+  }
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.scrollListen);
+  }
+  scrollListen = () => {
+    const winScroll =
+      document.body.scrollTop || document.documentElement.scrollTop;
+    const height =
+      document.documentElement.scrollHeight -
+      document.documentElement.clientHeight;
+    const scrolledPerc = ((height - winScroll) / height) * 100;
+    // console.log(scrolledPerc);
+
+    if (scrolledPerc < 20 / this.noOfReels) {
+      window.removeEventListener("scroll", this.scrollListen);
+      this.noOfReels++;
+
+      this.addAnotherReel();
+      setTimeout(
+        () => window.addEventListener("scroll", this.scrollListen),
+        6000
+      );
+    }
+  };
 
   render() {
     console.log(this.tempSubReddit);
