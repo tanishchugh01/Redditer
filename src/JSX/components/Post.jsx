@@ -48,7 +48,7 @@ const Post = ({
               className=" rounded-2xl  border "
             />
           ) : (
-            <p className="overflow-hidden text-justify break-words">
+            <p className=" [overflow-wrap:anywhere] text-justify">
               {textDescription}
             </p>
           )}

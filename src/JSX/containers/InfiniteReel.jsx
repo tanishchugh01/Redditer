@@ -34,7 +34,7 @@ class InfiniteReel extends Component {
       document.documentElement.scrollHeight -
       document.documentElement.clientHeight;
     const scrolledPerc = ((height - winScroll) / height) * 100;
-    console.log(scrolledPerc);
+    // console.log(scrolledPerc);
 
     if (scrolledPerc < 20 / this.noOfReels) {
       window.removeEventListener("scroll", this.scrollListen);
@@ -51,7 +51,7 @@ class InfiniteReel extends Component {
 
   render() {
     return (
-      <>
+      <div className="flex items-center w-[100%] flex-col">
         {this.state.afterArr.map((afterVal) => (
           <Reel
             subReddit={this.props.subReddit}
@@ -60,15 +60,16 @@ class InfiniteReel extends Component {
             key={afterVal}
           />
         ))}
+        
         <button
-          className="p-5 text-white text-lg rounded-lg font-bold bg-twitter ml-[40%]"
+          className="p-5 flex text-white mt-3 text-center text-lg rounded-lg font-bold bg-twitter"
           onClick={() => {
             this.addAnotherReel();
           }}
         >
           Show More
         </button>
-      </>
+      </div>
     );
   }
 }
