@@ -5,11 +5,10 @@ export async function getDataThroughSubreddit(subreddit, after) {
     const rawData = await axios({
       method: "get",
       url: `/r/${subreddit}.json?after=${after}`,
-      // after=t3_vmjoj6
     });
 
-    // console.log(data);
     return rawData.data.data;
+    
   } catch (err) {
     console.log(err);
     return err.response.status;

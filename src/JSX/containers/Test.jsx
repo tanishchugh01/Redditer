@@ -1,11 +1,12 @@
-import Reel from "./Reel";
 import { Component } from "react";
 import SearchPair from "../widgets/SearchPair";
+import InfiniteReel from "./InfiniteReel";
 
 class Test extends Component {
   constructor() {
     super();
     this.tempSubReddit = "meme";
+
     this.state = { subReddit: "meme" };
   }
 
@@ -33,7 +34,7 @@ class Test extends Component {
           />
         </div>
 
-        <Reel subReddit={this.state.subReddit} />
+        <InfiniteReel subReddit={this.state.subReddit} key={this.state.subReddit}/>
       </>
     );
   }
