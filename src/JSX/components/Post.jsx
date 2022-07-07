@@ -22,7 +22,7 @@ const Post = ({
         alt="User Profile"
       />
 
-      <div className="flex flex-col justify-items-start mt-3">
+      <div className="flex flex-col justify-items-start mt-3 ">
         <div className="flex justify-between">
           <span className="text-left">
             <span className="hover:underline cursor-pointer">
@@ -53,7 +53,7 @@ const Post = ({
             </p>
           )}
         </div>
-        <div className="flex flex-row justify-between my-1 pr-8">
+        <div className="flex flex-row justify-between my-1 pr-8 w-full">
           <IconNumberPair icon="chat" number={numberOfComments} />
           <IconNumberPair icon="arrow-repeat" number={numberOfRetweets} />
           <IconNumberPair icon="heart" number={numberOfLikes} />

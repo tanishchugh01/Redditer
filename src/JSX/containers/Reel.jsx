@@ -39,13 +39,21 @@ class Reel extends Component {
     return `${date} ${month}, ${year}`;
   }
 
+  afterr="n"
   async fetchData() {
     getDataThroughSubreddit(this.props.subReddit, this.props.after)
       .then((result) => {
+        this.afterr=result.after;
         this.setState({ postData: result });
         this.props.saveAfter(result.after);
+      }).then(()=>{
+        // console.log(this.state.postData);
         this.isReady = true;
-        console.log(this.state.postData);
+        setTimeout(() => {
+          this.props.readyState(true);
+          console.log("ready",this.afterr)  
+  }, 2000);
+        
       })
       .catch((err) => {
         console.log(err);
