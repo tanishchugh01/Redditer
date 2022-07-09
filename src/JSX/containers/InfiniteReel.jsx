@@ -37,12 +37,12 @@ class InfiniteReel extends Component {
       document.documentElement.scrollHeight -
       document.documentElement.clientHeight;
     const scrolledPerc = ((height - winScroll) / height) * 100;
-    console.log(scrolledPerc,this.readyState);
+    // console.log(scrolledPerc,this.readyState);
 
     if (scrolledPerc < 30 / this.noOfReels && this.readyState===true) {
       // window.removeEventListener("scroll", this.scrollListen);
       this.readyState=false;
-console.log("fetch", 30 / this.noOfReels);
+
       this.noOfReels++;
       setTimeout(() => {
         
