@@ -46,7 +46,8 @@ class Reel extends Component {
         this.afterr=result.after;
         this.setState({ postData: result });
         this.props.saveAfter(result.after);
-      }).then(()=>{
+      // })
+      // .then(()=>{
         // console.log(this.state.postData);
         this.isReady = true;
         setTimeout(() => {
