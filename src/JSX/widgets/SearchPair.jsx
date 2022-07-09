@@ -1,8 +1,8 @@
 import IconButton from "./IconButton";
 
-const SearchPair = ({ textFn, clickFn, icon, buttonClass, height }) => {
-  const inpClass = `bg-slate-200 rounded-full h-${height} px-3 mr-1`;
-
+const SearchPair = ({ textFn, clickFn, icon, buttonClass, height,iconColor="" ,iconSize=""}) => {
+  const inpClass = `bg-blue-50 rounded-full h-${height} px-3 mr-1`;
+// className="bg-bl"
   const handleKeyPress = (event) => {
     if (event.key === "Enter") {
       clickFn();
@@ -24,6 +24,8 @@ const SearchPair = ({ textFn, clickFn, icon, buttonClass, height }) => {
           className={buttonClass}
           icon={icon}
           height={height}
+          iconColor={iconColor}
+          iconSize={iconSize}
         />
     </div>
   );

@@ -21,37 +21,45 @@
 .loader:after {
   animation: after 2s infinite;
 }
+:root{
+  --col1:rgba(29, 155 ,240,0.75);
+  --col2: rgba(29, 155 ,240,0.75);
+  --col3:rgba(255, 69, 2,0.75);
+  --col4:rgba(255, 69, 2,0.75);
+}
+/* rgba(111, 202, 220, 0.75) */
+
 @keyframes before {
   0% {
     width: 0.5em;
-    box-shadow: 1em -0.5em rgba(225, 20, 98, 0.75), -1em 0.5em rgba(111, 202, 220, 0.75);
+    box-shadow: 1em -0.5em var(--col1), -1em 0.5em var(--col2);
  }
   35% {
     width: 2.5em;
-    box-shadow: 0 -0.5em rgba(225, 20, 98, 0.75), 0 0.5em rgba(111, 202, 220, 0.75);
+    box-shadow: 0 -0.5em var(--col1), 0 0.5em var(--col2);
  }
   70% {
     width: 0.5em;
-    box-shadow: -1em -0.5em rgba(225, 20, 98, 0.75), 1em 0.5em rgba(111, 202, 220, 0.75);
+    box-shadow: -1em -0.5em var(--col1), 1em 0.5em var(--col2);
  }
   100% {
-    box-shadow: 1em -0.5em rgba(225, 20, 98, 0.75), -1em 0.5em rgba(111, 202, 220, 0.75);
+    box-shadow: 1em -0.5em var(--col1), -1em 0.5em var(--col2);
  }
 }
 @keyframes after {
   0% {
     height: 0.5em;
-    box-shadow: 0.5em 1em rgba(61, 184, 143, 0.75), -0.5em -1em rgba(233, 169, 32, 0.75);
+    box-shadow: 0.5em 1em var(--col3), -0.5em -1em var(--col4);
  }
   35% {
     height: 2.5em;
-    box-shadow: 0.5em 0 rgba(61, 184, 143, 0.75), -0.5em 0 rgba(233, 169, 32, 0.75);
+    box-shadow: 0.5em 0 var(--col3), -0.5em 0 var(--col4);
  }
   70% {
     height: 0.5em;
-    box-shadow: 0.5em -1em rgba(61, 184, 143, 0.75), -0.5em 1em rgba(233, 169, 32, 0.75);
+    box-shadow: 0.5em -1em var(--col3), -0.5em 1em var(--col4);
  }
   100% {
-    box-shadow: 0.5em 1em rgba(61, 184, 143, 0.75), -0.5em -1em rgba(233, 169, 32, 0.75);
+    box-shadow: 0.5em 1em var(--col3), -0.5em -1em var(--col4);
  }
 }
