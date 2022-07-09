@@ -4,6 +4,9 @@ import Reel from "./Reel";
 class InfiniteReel extends Component {
   state = { afterArr: [null] };
   tempAfter = null;
+  
+  readyState = false;
+  changeReadyState = (val) => (this.readyState = val);
 
   addAnotherReel() {
     const newArr = [...this.state.afterArr];
@@ -17,8 +20,8 @@ class InfiniteReel extends Component {
 
   componentDidMount() {
     setTimeout(() => {
-      window.addEventListener("scroll", this.scrollListen);
-    }, 3000);
+      window.addEventListener("scroll", this.scrollListen,{passive:true});
+    }, 1000);
   }
 
   componentWillUnmount() {
@@ -34,18 +37,22 @@ class InfiniteReel extends Component {
       document.documentElement.scrollHeight -
       document.documentElement.clientHeight;
     const scrolledPerc = ((height - winScroll) / height) * 100;
-    // console.log(scrolledPerc);
+    console.log(scrolledPerc,this.readyState);
 
-    if (scrolledPerc < 20 / this.noOfReels) {
-      window.removeEventListener("scroll", this.scrollListen);
-
+    if (scrolledPerc < 30 / this.noOfReels && this.readyState===true) {
+      // window.removeEventListener("scroll", this.scrollListen);
+      this.readyState=false;
+console.log("fetch", 30 / this.noOfReels);
       this.noOfReels++;
-      this.addAnotherReel();
+      setTimeout(() => {
+        
+        this.addAnotherReel();
+      }, 700);
 
-      setTimeout(
-        () => window.addEventListener("scroll", this.scrollListen),
-        6000
-      );
+      // setTimeout(
+      //   () => window.addEventListener("scroll", this.scrollListen),
+      //   6000
+      // );x
     }
   };
 
@@ -54,13 +61,14 @@ class InfiniteReel extends Component {
       <div className="flex items-center w-[100%] flex-col">
         {this.state.afterArr.map((afterVal) => (
           <Reel
+            readyState={this.changeReadyState}
             subReddit={this.props.subReddit}
             after={afterVal}
             saveAfter={this.saveTempAfter.bind(this)}
             key={afterVal}
           />
         ))}
-        
+
         <button
           className="p-5 flex text-white mt-3 text-center text-lg rounded-lg font-bold bg-twitter"
           onClick={() => {
