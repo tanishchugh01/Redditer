@@ -15,7 +15,7 @@ const Post = ({
   username = "@" + username;
 
   return (
-    <div className="resizeToScreen flex flex-row border hover:bg-gray-100">
+    <div className="resizeToScreen flex flex-row border hover:bg-white">
       <img
         className="w-10 h-10 m-3 rounded-full border-none"
         src={userProfilePicture}

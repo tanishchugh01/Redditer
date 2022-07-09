@@ -16,6 +16,9 @@
   .hoverGlow {
     @apply hover:bg-green-100 hover:text-green-500;
   }
+  .myGradient {
+    @apply  bg-gradient-to-br from-twitter to-reddit;
+  }
 }
 
 @media screen and (min-width: 37rem) {
@@ -27,4 +30,9 @@
   .resizeToScreen {
     width: 100%;
   }
+}
+
+body{
+  background-image: url("https://assets.website-files.com/60d8b73075d915233e404041/60d8b73075d9155b1840405c_bg.jpg");
+  background-size: contain;
 }

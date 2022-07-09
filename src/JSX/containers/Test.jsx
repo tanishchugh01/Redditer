@@ -1,4 +1,5 @@
 import { Component } from "react";
+import Navibar from "../components/Navibar";
 import SearchPair from "../widgets/SearchPair";
 import InfiniteReel from "./InfiniteReel";
 
@@ -23,18 +24,16 @@ class Test extends Component {
     console.log(this.tempSubReddit);
     return (
       <>
-        <div className="text-center">
-          <SearchPair
-            textFn={this.getInput.bind(this)}
-            clickFn={this.submitInput.bind(this)}
-            icon="search"
-            buttonClass=" bg-gradient-to-br from-twitter to-reddit"
-            className="  bg-twitter/70"
-            height={8}
+          <Navibar
+            inputTextFn={this.getInput.bind(this)}
+            inputClickFn={this.submitInput.bind(this)}
           />
-        </div>
+  
 
-        <InfiniteReel subReddit={this.state.subReddit} key={this.state.subReddit}/>
+        <InfiniteReel
+          subReddit={this.state.subReddit}
+          key={this.state.subReddit}
+        />
       </>
     );
   }
