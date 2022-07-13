@@ -2,8 +2,12 @@
 <a href="https://wakatime.com/badge/user/2a5dd98b-31e6-45fe-b1a0-e33e97614682/project/acddd2d7-a5ab-40b6-875f-70fd0621c52f"><img src="https://wakatime.com/badge/user/2a5dd98b-31e6-45fe-b1a0-e33e97614682/project/acddd2d7-a5ab-40b6-875f-70fd0621c52f.svg" alt="wakatime"></a>
 </div>
 
+### A social media platform that fetches real-time data from Reddit and renders it in beautiful twitter UI
+A perfect replica of Twitter has been presented in mesmerizing modern UI, implemented
+infinite scroll without using an external library, and can search through lakhs of subreddits.
+
 ## Reddit on Twitter?
-<br>
+
 But why?
 <br>
 <br>
