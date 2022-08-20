@@ -17,8 +17,8 @@ const ErrorPage = ({ code = null, errMsg = "" }) => {
       message = "An error occured. \n Try refreshing the page. \nCode:" + code;
   }
   return (
-    <div className="flex  flex-col content-center justify-center h-max">
-      <ErrorSvg className=" h-64 mt-4"/>
+    <div className="flex  flex-col content-center justify-center">
+      <ErrorSvg className=" h-64 mt-4 hover:animate-wiggle"/>
       <h2 className="whitespace-pre-line text-center m-4 ">{message}</h2>
     </div>
   );
