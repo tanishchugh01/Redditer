@@ -1,6 +1,5 @@
 import { Component } from "react";
 import Navibar from "../components/Navibar";
-import SearchPair from "../widgets/SearchPair";
 import InfiniteReel from "./InfiniteReel";
 
 class Test extends Component {

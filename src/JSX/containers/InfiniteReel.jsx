@@ -1,8 +1,9 @@
 import { Component } from "react";
 import Reel from "./Reel";
+import { useState } from "react";
 
 class InfiniteReel extends Component {
-  state = { afterArr: [null] };
+  state = { afterArr: [null] ,showMore:true};
   tempAfter = null;
   
   readyState = false;
@@ -12,6 +13,11 @@ class InfiniteReel extends Component {
     const newArr = [...this.state.afterArr];
     newArr.push(this.tempAfter);
     this.setState({ afterArr: newArr });
+  }
+  
+  changeShowMore(booly)
+  {
+    this.setState({showMore:booly});
   }
 
   saveTempAfter(after) {
@@ -66,10 +72,11 @@ class InfiniteReel extends Component {
             after={afterVal}
             saveAfter={this.saveTempAfter.bind(this)}
             key={afterVal}
+            changeShowMore={this.changeShowMore.bind(this)}
           />
         ))}
-
-        <button
+{this.state.showMore?
+        (<button
           className="p-5 flex text-white mt-3 text-center text-lg rounded-lg font-bold bg-twitter"
           onClick={() => {
             this.addAnotherReel();
@@ -77,7 +84,8 @@ class InfiniteReel extends Component {
         >
           Show More
         </button>
-      </div>
+        ):null}
+        </div>
     );
   }
 }
