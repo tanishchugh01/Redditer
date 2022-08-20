@@ -19,7 +19,7 @@ class Reel extends Component {
   async fetchData() {
     getDataThroughSubreddit(this.props.subReddit, this.props.after)
       .then((result) => {
-        this.afterr = result.after;
+        // this.afterr = result.after;
         this.setState({ postData: result });
         this.props.saveAfter(result.after);
         // })
@@ -31,6 +31,7 @@ class Reel extends Component {
         }, 2000);
       })
       .catch((err) => {
+        
         console.log(err);
         // console.log("handeled");
       });
@@ -41,6 +42,7 @@ class Reel extends Component {
       return <Loader />;
     }
     if (typeof this.state.postData === "number") {
+      this.props.changeShowMore(false);
       //error status code
       return <ErrorPage code={this.state.postData} />;
     }
