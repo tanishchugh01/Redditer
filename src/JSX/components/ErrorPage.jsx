@@ -9,6 +9,8 @@ const ErrorPage = ({ code = null, errMsg = "" }) => {
     // return <ErrorPage code={null} errMsg="try" />;
 
     case 404:
+    case 0:
+    case 403:
       message =
         "This subreddit do not exist. \n Try finding another.\tMy favourite is 'meme':)";
       break;
