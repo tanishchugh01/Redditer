@@ -9,12 +9,17 @@ const Comment = () => {
   useEffect(() => {
     axios
       .get(`/r/${subreddit}/${id}.json`)
-      .then((res) => setpostData(res.data))
+      .then((res) => setpostData(res.data));
   }, []);
   return (
     <div className="">
       id:{id} subreddit:{subreddit}
-      {postData ?function(){console.log(postData);return <Post post={postData[0].data.children[0]} />}() : null}
+      {postData
+        ? (function () {
+            console.log(postData);
+            return <Post post={postData[0].data.children[0]} />;
+          })()
+        : null}
     </div>
   );
 };
