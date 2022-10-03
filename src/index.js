@@ -8,11 +8,15 @@ import { BrowserRouter } from "react-router-dom";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <BrowserRouter basename="/redditr">
+    <BrowserRouter basename={process.env.REACT_APP_MAIN_BASE}>
       <App />
     </BrowserRouter>
   </React.StrictMode>
 );
+
+// "homepage": "https://tanishchugh01.github.io/redditr/",
+// package for github
+
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
