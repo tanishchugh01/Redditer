@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Navibar from "../components/Navibar";
 import Post from "../containers/Post";
 
 const Comment = () => {
@@ -12,15 +13,18 @@ const Comment = () => {
       .then((res) => setpostData(res.data));
   }, []);
   return (
-    <div className="">
-      id:{id} subreddit:{subreddit}
-      {postData
-        ? (function () {
-            console.log(postData);
-            return <Post post={postData[0].data.children[0]} />;
-          })()
-        : null}
-    </div>
+    <>
+      <Navibar showInput={false} />
+      <div className="flex justify-center">
+        {/* id:{id} subreddit:{subreddit} */}
+        {postData
+          ? (function () {
+              console.log(postData);
+              return <Post post={postData[0].data.children[0]} />;
+            })()
+          : null}
+      </div>
+    </>
   );
 };
 
