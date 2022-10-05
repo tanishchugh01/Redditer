@@ -1,5 +1,6 @@
 import IconNumberPair from "../widgets/IconNumberPair";
 import changeDateFormat from "../../methods/changeDateFormat";
+import { useNavigate } from "react-router-dom";
 
 const Post = ({
   // text,
@@ -14,21 +15,31 @@ const Post = ({
   // textDescription
   post,
 }) => {
+  console.log(post);
+  const navigate=useNavigate()
+  
   // username = "@" + username;
-
+  
   const text = post.data.title,
-    urlForImage = post.data.url,
-    numberOfLikes = post.data.score,
-    username = "@" + post.data.author,
+  urlForImage = post.data.url,
+  numberOfLikes = post.data.score,
+  username = "@" + post.data.author,
     profileName = post.data.author_fullname,
     date = changeDateFormat(post.data.created),
     userProfilePicture =
-      "https://styles.redditmedia.com/t5_2qi1r/styles/communityIcon_2stg5hn8m5k51.png?width=256&s=e4abb6ac11d144c7fb965232592b4d42fe0e370b",
+    "https://styles.redditmedia.com/t5_2qi1r/styles/communityIcon_2stg5hn8m5k51.png?width=256&s=e4abb6ac11d144c7fb965232592b4d42fe0e370b",
     numberOfComments = post.data.num_comments,
     numberOfRetweets = post.data.all_awardings.length,
-    textDescription = post.data.selftext;
-
-  return (
+    textDescription = post.data.selftext,
+    subreddit=post.data.subreddit,
+    id=post.data.id;
+    
+    function showFullScreen()
+    {
+      navigate(`/${subreddit}/${id}`);
+    }
+    
+    return (
     <div className="resizeToScreen flex flex-row border hover:bg-white">
       <img
         className="w-10 h-10 m-3 rounded-full border-none"
@@ -71,7 +82,7 @@ const Post = ({
           <IconNumberPair icon="chat" number={numberOfComments} />
           <IconNumberPair icon="arrow-repeat" number={numberOfRetweets} />
           <IconNumberPair icon="heart" number={numberOfLikes} />
-          <IconNumberPair icon="upload" number={null} />
+          <IconNumberPair icon="upload" funtionality={showFullScreen} number={null} />
         </div>
       </div>
     </div>

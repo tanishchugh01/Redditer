@@ -1,13 +1,22 @@
-import "./App.css";
-import Test from "./JSX/containers/Test";
 import axios from "axios";
+import Home from "./JSX/pages/Home";
+import { Route, Routes } from "react-router-dom";
+import Navibar from "./JSX/components/Navibar";
+import Comment from "./JSX/pages/Comment";
+import Post from "./JSX/containers/Post";
 axios.defaults.baseURL = process.env.REACT_APP_BASEURL;
 
 function App() {
   return (
-    <div className="App">
-      <Test/>
-    </div>
+    <>
+      {/* <Navibar/> */}
+      <Routes>
+        <Route element={<Home />} path="/" exact />
+        <Route path="/:subreddit/:id" element={<Comment/>} />
+        <Route path="/subreddit" element={<Post />} />
+      </Routes>
+    </>
+    // <Test/>
   );
 }
 

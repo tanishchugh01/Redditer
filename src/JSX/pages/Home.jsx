@@ -1,8 +1,8 @@
 import { Component } from "react";
 import Navibar from "../components/Navibar";
-import InfiniteReel from "./InfiniteReel";
+import InfiniteReel from "../containers/InfiniteReel";
 
-class Test extends Component {
+class Home extends Component {
   constructor() {
     super();
     this.tempSubReddit = "meme";
@@ -23,11 +23,10 @@ class Test extends Component {
     console.log(this.tempSubReddit);
     return (
       <>
-          <Navibar
-            inputTextFn={this.getInput.bind(this)}
-            inputClickFn={this.submitInput.bind(this)}
-          />
-  
+        <Navibar
+          inputTextFn={this.getInput.bind(this)}
+          inputClickFn={this.submitInput.bind(this)}
+        />
 
         <InfiniteReel
           subReddit={this.state.subReddit}
@@ -38,4 +37,4 @@ class Test extends Component {
   }
 }
 
-export default Test;
+export default Home;

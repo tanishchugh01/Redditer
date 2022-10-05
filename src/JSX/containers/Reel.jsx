@@ -1,7 +1,7 @@
 import { getDataThroughSubreddit } from "../../API/subreddits";
 import React, { Component } from "react";
 import Loader from "../components/Loader";
-import Post from "../components/Post";
+import Post from "./Post";
 import ErrorPage from "../components/ErrorPage";
 
 class Reel extends Component {
